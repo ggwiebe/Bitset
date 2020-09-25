@@ -1,0 +1,23 @@
+# eclipse,vs code project files
+.settings/
+.classpath
+.project
+.code-workspace
+launch.json
+
+# DirCompare backup files
+*.bak
+*.*_
+
+# Maven
+target/
+ignite/
+
+# Binary / Jar files
+jdbc-drivers
+
+# GridGain Cluster secret properties
+secret.properties
+
+# Ignite runtime location
+ignite/
