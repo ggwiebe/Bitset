@@ -2,7 +2,7 @@
 .settings/
 .classpath
 .project
-.code-workspace
+*.code-workspace
 launch.json
 
 # DirCompare backup files
