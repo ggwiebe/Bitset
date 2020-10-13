@@ -8,7 +8,7 @@ public class createNewDeviceTable {
         try (Ignite ignite = Ignition.start("Bitset-client-v2.xml")) {
             System.out.println("completed client v2... Check Table in new schema!");
         } catch (Exception e) {
-            //TODO: handle exception
+            System.out.println("Exception caught: " + e );
         };
     }
 }

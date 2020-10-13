@@ -84,11 +84,9 @@
                                     <map>
                                         <entry key="id" value="java.lang.Integer"/>
                                         <entry key="updatets" value="java.sql.Timestamp"/>
-                                        <!--  should the value be "byte[]" ???
-                                            <entry key="demographics" value="[B"/>
-                                            <entry key="content" value="[B"/> 
-                                            -->
-                                        </map>
+                                        <!-- <entry key="demographics" value="[B"/> -->
+                                        <!-- <entry key="content" value="[B"/>  -->
+                                    </map>
                                 </property>
 
                                 <property name="notNullFields">

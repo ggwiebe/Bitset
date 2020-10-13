@@ -1,4 +1,4 @@
-package com.gridgain.bitset.model_v2;
+package com.gridgain.bitset.model_v3;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -40,9 +40,9 @@ public class Device implements Serializable {
      *  "ALTER TABLE DEVICE ADD COLUMN COMMENTS"
     */
     public Device(com.gridgain.bitset.model.Device oDevice) {
-        this.updatets = oDevice.getUpdatets();
+        this.updatets = new Timestamp(System.currentTimeMillis());
         this.demographics = oDevice.getDemographics();
-        this.comments = "Migrated from V1 Device Type";
+        this.comments = "Migrated from V1/V2 Device Type";
         this.content = oDevice.getContent();
     }
 

@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
-public class moveDevicesToNewCache {
+public class moveDevicesToV2Cache {
 
     public static void main(String[] args) {
 

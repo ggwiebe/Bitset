@@ -72,6 +72,7 @@
                             <bean class="org.apache.ignite.cache.QueryEntity">
                                 <property name="keyType" value="com.gridgain.bitset.model.DeviceKey"/>
                                 <property name="valueType" value="com.gridgain.bitset.model.Device"/>
+                                <property name="tableName" value="Device"/>
 
                                 <property name="keyFields">
                                     <list>
@@ -83,7 +84,7 @@
                                     <map>
                                         <entry key="id" value="java.lang.Integer"/>
                                         <entry key="updatets" value="java.sql.Timestamp"/>
-                                        <entry key="demographics" value="[B"/>
+                                        <!-- <entry key="demographics" value="[B"/> -->
                                         <!-- <entry key="content" value="[B"/>  -->
                                         </map>
                                 </property>

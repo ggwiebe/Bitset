@@ -77,7 +77,7 @@ public class loadDeviceDirectory {
          * -----------------------------------------------------------------------------------------------------------
          */
         System.out.println(">>> Bitset-loadDeviceDirectory: Bitset Client App starting...");
-        try (Ignite ignite = Ignition.start("Bitset-client.xml")) {
+        try (Ignite ignite = Ignition.start("Bitset-client-v1.xml")) {
 
             try (IgniteCache cache = ignite.getOrCreateCache("DeviceCache")) {
                 System.out.println(">>> Bitset-loadDeviceDirectory: Create Key & Value...");

@@ -16,7 +16,7 @@ import com.gridgain.bitset.model.Device;
 // Cannot import these, must reference them directly by full packaged name
 // import com.gridgain.bitset.model_v2.Device;
 
-public class moveDevicesToNewSchema {
+public class moveDevicesToV2Schema {
 
     public static void main(String[] args) {
 

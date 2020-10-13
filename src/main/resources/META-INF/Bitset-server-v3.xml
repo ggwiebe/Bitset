@@ -10,7 +10,6 @@
                            http://www.springframework.org/schema/util
                            http://www.springframework.org/schema/util/spring-util.xsd">
     <bean class="org.apache.ignite.configuration.IgniteConfiguration">
-        <property name="clientMode" value="true"/>
         <property name="igniteInstanceName" value="Bitset"/>
         <property name="metricsLogFrequency" value="0"/>
 
@@ -41,7 +40,7 @@
             <bean class="org.apache.ignite.spi.tracing.opencensus.OpenCensusTracingSpi"/>
         </property>
 
-         <property name="dataStorageConfiguration">
+        <property name="dataStorageConfiguration">
             <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
                 <property name="defaultDataRegionConfiguration">
                     <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
@@ -177,6 +176,79 @@
                                 
                                 <property name="defaultFieldValues">
                                     <map>
+                                        <entry key="id" value="0"/>
+                                        <!-- <entry key="updatets" value="System.currentTimeMillis()"/> -->
+                                    </map>
+                                </property>
+                                
+                                <property name="indexes">
+                                    <list>
+                                        <bean class="org.apache.ignite.cache.QueryIndex">
+                                            <property name="name" value="device_UpdateTS_IDX"/>
+                                            <property name="indexType" value="SORTED"/>
+                                
+                                            <property name="fields">
+                                                <map>
+                                                    <entry key="updatets" value="true"/>
+                                                </map>
+                                            </property>
+                                
+                                            <property name="inlineSize" value="-1"/>
+                                        </bean>
+                                    </list>
+                                </property>
+                            </bean>
+                        </list>
+                    </property>
+                </bean>
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="name" value="DeviceV3Cache"/>
+                    <property name="cacheMode" value="PARTITIONED"/>
+                    <property name="atomicityMode" value="ATOMIC"/>
+                    <property name="backups" value="1"/>
+                    <property name="readFromBackup" value="true"/>
+                    <property name="copyOnRead" value="true"/>
+                    <property name="sqlSchema" value="DEVICEv3"/>
+                    <property name="eagerTtl" value="true"/>
+                    <property name="statisticsEnabled" value="true"/>
+                    <property name="managementEnabled" value="true"/>
+
+                    <property name="queryEntities">
+                        <list>
+                            <bean class="org.apache.ignite.cache.QueryEntity">
+                                <property name="keyType" value="com.gridgain.bitset.model_v3.DeviceKecy"/>
+                                <property name="valueType" value="com.gridgain.bitset.model_v3.Device"/>
+                                <property name="tableName" value="Device"/>
+
+                                <property name="keyFields">
+                                    <list>
+                                        <!-- <value>manufacturerId</value> -->
+                                        <value>id</value>
+                                    </list>
+                                </property>
+                                
+                                <property name="fields">
+                                    <map>
+                                        <!-- <entry key="manufacturerId" value="java.lang.String"/> -->
+                                        <entry key="id" value="java.lang.Integer"/>
+                                        <entry key="updatets" value="java.sql.Timestamp"/>
+                                        <entry key="demographics" value="[B"/>
+                                        <entry key="comments" value="java.lang.String"/>
+                                        <entry key="content" value="[B"/>
+                                    </map>
+                                </property>
+                                
+                                <property name="notNullFields">
+                                    <list>
+                                        <!-- <value>manufacturerId</value> -->
+                                        <value>id</value>
+                                        <value>updatets</value>
+                                    </list>
+                                </property>
+                                
+                                <property name="defaultFieldValues">
+                                    <map>
+                                        <!-- <entry key="manufacturerId" value="Unlisted"/> -->
                                         <entry key="id" value="0"/>
                                         <!-- <entry key="updatets" value="System.currentTimeMillis()"/> -->
                                     </map>
